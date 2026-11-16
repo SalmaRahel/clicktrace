@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Span",
+  "description": "One recorded step of a click, with a start time and a duration.",
+  "type": "object",
+  "properties": {
+    "trace_id": { "type": "string", "pattern": "^(?!0+$)[0-9a-f]{32}$" },
+    "span_id": { "type": "string", "pattern": "^(?!0+$)[0-9a-f]{16}$" },
+    "parent_span_id": {
+      "type": ["string", "null"],
+      "pattern": "^(?!0+$)[0-9a-f]{16}$"
+    },
+    "kind": {
+      "enum": [
+        "CLICK",
+        "HTTP_CLIENT",
+        "HTTP_SERVER",
+        "DB_QUERY",
+        "QUEUE_PUBLISH",
+        "QUEUE_CONSUME",
+        "ERROR"
+      ]
+    },
+    "name": { "type": "string" },
+    "service": { "type": "string" },
+    "start_unix_ms": { "type": "integer" },
+    "duration_ms": { "type": "integer", "minimum": 0 },
+    "status": { "enum": ["OK", "ERROR"] },
+    "attributes": { "type": "object" }
+  },
+  "required": [
+    "trace_id",
+    "span_id",
+    "parent_span_id",
+    "kind",
+    "name",
+    "service",
+    "start_unix_ms",
+    "duration_ms",
+    "status"
+  ],
+  "additionalProperties": false
+}

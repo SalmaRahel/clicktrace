@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "esbuild extension/src/service-worker.ts --bundle --outfile=extension/dist/service-worker.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

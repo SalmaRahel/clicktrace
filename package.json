@@ -1,9 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "build": "esbuild extension/src/service-worker.ts --bundle --outfile=extension/dist/service-worker.js"
+    "build": "esbuild extension/src/service-worker.ts --bundle --outfile=extension/dist/service-worker.js",
+    "test": "vitest run"
   },
   "devDependencies": {
-    "esbuild": "^0.28.2"
+    "esbuild": "^0.28.2",
+    "vitest": "^4.1.12"
   }
 }

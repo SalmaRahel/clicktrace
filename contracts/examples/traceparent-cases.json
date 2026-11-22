@@ -1,0 +1,42 @@
+[
+  {
+    "name": "valid traceparent",
+    "input": "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01",
+    "valid": true
+  },
+  {
+    "name": "uppercase hex in trace ID",
+    "input": "00-4BF92F3577B34DA6A3CE929D0E0E4736-00f067aa0ba902b7-01",
+    "valid": false
+  },
+  {
+    "name": "trace ID too short",
+    "input": "00-4bf92f3577b34da6a3ce929d0e0e47-00f067aa0ba902b7-01",
+    "valid": false
+  },
+  {
+    "name": "span ID too long",
+    "input": "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b700-01",
+    "valid": false
+  },
+  {
+    "name": "all-zero trace ID",
+    "input": "00-00000000000000000000000000000000-00f067aa0ba902b7-01",
+    "valid": false
+  },
+  {
+    "name": "all-zero span ID",
+    "input": "00-4bf92f3577b34da6a3ce929d0e0e4736-0000000000000000-01",
+    "valid": false
+  },
+  {
+    "name": "only 3 parts instead of 4",
+    "input": "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7",
+    "valid": false
+  },
+  {
+    "name": "non-hex character g in trace ID",
+    "input": "00-4bf92f3577b34da6a3ce929d0e0e473g-00f067aa0ba902b7-01",
+    "valid": false
+  }
+]

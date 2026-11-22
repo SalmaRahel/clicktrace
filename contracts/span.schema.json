@@ -4,9 +4,9 @@
   "description": "One recorded step of a click, with a start time and a duration.",
   "type": "object",
   "properties": {
-    "trace_id": { "type": "string", "pattern": "^(?!0+$)[0-9a-f]{32}$" },
-    "span_id": { "type": "string", "pattern": "^(?!0+$)[0-9a-f]{16}$" },
-    "parent_span_id": {
+    "traceId": { "type": "string", "pattern": "^(?!0+$)[0-9a-f]{32}$" },
+    "spanId": { "type": "string", "pattern": "^(?!0+$)[0-9a-f]{16}$" },
+    "parentSpanId": {
       "type": ["string", "null"],
       "pattern": "^(?!0+$)[0-9a-f]{16}$"
     },
@@ -23,20 +23,20 @@
     },
     "name": { "type": "string" },
     "service": { "type": "string" },
-    "start_unix_ms": { "type": "integer" },
-    "duration_ms": { "type": "integer", "minimum": 0 },
+    "startUnixMs": { "type": "integer" },
+    "durationMs": { "type": "integer", "minimum": 0 },
     "status": { "enum": ["OK", "ERROR"] },
     "attributes": { "type": "object" }
   },
   "required": [
-    "trace_id",
-    "span_id",
-    "parent_span_id",
+    "traceId",
+    "spanId",
+    "parentSpanId",
     "kind",
     "name",
     "service",
-    "start_unix_ms",
-    "duration_ms",
+    "startUnixMs",
+    "durationMs",
     "status"
   ],
   "additionalProperties": false
